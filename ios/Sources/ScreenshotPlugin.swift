@@ -37,6 +37,26 @@ public class ScreenshotPlugin: CAPPlugin, CAPBridgedPlugin {
     }
     
     private func getScreenshot() -> UIImage? {
+        if #available(iOS 26, *) {
+            let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+            guard let mainScene = scenes.first(where: { $0.activationState == .foregroundActive }),
+                  let referenceWindow = mainScene.windows.first(where: { $0.isKeyWindow }) ?? mainScene.windows.first
+            else { return nil }
+            
+            let format = UIGraphicsImageRendererFormat.default()
+            format.scale = UIScreen.main.scale
+            let renderer = UIGraphicsImageRenderer(size: referenceWindow.bounds.size, format: format)
+            
+            let screenshotImage = renderer.image { _ in
+                for window in mainScene.windows where !window.isHidden && window.alpha > 0 {
+                    // Normaliza para o espaço da key window
+                    let frameInRef = referenceWindow.convert(window.bounds, from: window)
+                    window.drawHierarchy(in: frameInRef, afterScreenUpdates: false)
+                }
+            }
+            return screenshotImage
+        }
+        
         var screenshotImage :UIImage?
         let layer = UIApplication.shared.keyWindow!.layer
         let scale = UIScreen.main.scale
