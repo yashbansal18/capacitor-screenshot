@@ -1,45 +1,40 @@
-# 7.3.0 (2025-09-11)
+# 8.0.0 (2026-01-26)
 
+### Features
+
+* Capacitor 8 support (Thanks @kisimediaDE for the PR)
+
+# 7.3.0 (2025-09-11)
 
 ### Fixes
 
 * Fix iOS 26 support
 
-
 # 7.2.0 (2025-06-16)
-
 
 ### Features
 
 * Convert to Swift Package Manager
 
-
 # 7.1.1 (2025-06-16)
-
 
 ### Features
 
 * Capacitor 7 support updates
 
-
 # 7.0.0 (2025-06-16)
-
 
 ### Features
 
 * Capacitor 7 support
 
-
 # 6.0.1 (2024-04-23)
-
 
 ### Fixes
 
 * Fix `peerDependencies`
 
-
 # 6.0.0 (2024-04-16)
-
 
 ### Features
 
@@ -47,22 +42,17 @@
 
 # 5.0.0 (2023-05-04)
 
-
 ### Features
 
 * Capacitor 5
 
-
 # 4.0.0 (2022-09-19)
-
 
 ### Features
 
 * Capacitor 4
 
-
 # 0.0.2 (2021-11-07)
-
 
 ### Features
 
